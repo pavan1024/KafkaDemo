@@ -22,17 +22,14 @@ public class KafkaConsumerConfig {
       props.put("value.deserializer", StringDeserializer.class);
       KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
       
-      //Kafka Consumer subscribes list of topics here.
       consumer.subscribe(Arrays.asList(topicName));
       
-      //print the topic name
       System.out.println("Subscribed to topic " + topicName);
       int i = 0;
       
       while (true) {
          ConsumerRecords<String, String> records = consumer.poll(100);
          for (ConsumerRecord<String, String> record : records) {
-        	// print the offset,key and value for the consumer records.
              System.out.printf("offset = %d, key = %s, value = %s\n", 
                 record.offset(), record.key(), record.value());
              i++;

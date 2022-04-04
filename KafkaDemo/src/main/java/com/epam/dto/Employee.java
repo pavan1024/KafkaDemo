@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-class Employee {
-	
+public class Employee {
+
 	int id;
 	String name;
-	
+
 }
