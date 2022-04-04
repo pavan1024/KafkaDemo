@@ -17,7 +17,7 @@ public class EmployeeController {
 	@PostMapping
 	public String createMessage(@RequestBody Employee employee) {
 		KafkaProducerConfig.produce().send(new ProducerRecord<>("employee", employee.toString()));
-		return employee.toString() + " Published Successfully";
+		return employee.toString();
 	}
 
 	@KafkaListener(topics = "employee", groupId = "group1")
