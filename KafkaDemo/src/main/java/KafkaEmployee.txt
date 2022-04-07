@@ -1,0 +1,16 @@
+( cmd : try it from kafka folder directly)
+zookeeper ---> .\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+kafka server ---> .\bin\windows\kafka-server-start.bat .\config\server.properties
+
+consumer --->  kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic employee --from-beginning
+
+For Creating Kafka Topic( cmd : try it from bin->windows-->)
+-----> kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+
+For Creating Kafka Producer
+
+---------------->  kafka-console-producer.bat --broker-list localhost:9092 --topic test
+
+For Creating Kafka Consumer
+--------------->   kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic test --from-beginning
